@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <title>Список дел</title>
     <style>
-        body{
+        body {
             margin: 0;
         }
-        #topBlock{
+
+        #topBlock {
             width: auto;
             height: 120px;
             background: firebrick;
             margin-left: 0px;
             margin-top: 0px;
         }
-        #mainLabel{
+
+        #mainLabel {
             font-family: "Times New Roman";
             font-size: 48px;
             font-style: inherit;
@@ -23,84 +25,150 @@
             vertical-align: center;
             color: white;
         }
-        #mainBlock{
+
+        #mainBlock {
             width: 800px;
             height: 700px;
             margin-left: auto;
             margin-right: auto;
             margin-top: 100px;
         }
-        #inputElement{
+
+        #inputElement {
             float: left;
             width: 600px;
             height: 50px;
-            margin-top: auto ;
+            margin-top: auto;
         }
-        #saveButton{
-           float: left;
+
+        #saveButton {
+            float: left;
             width: 192px;
             margin-left: 0px;
             height: 55px;
             background: dimgray;
         }
-        button>p{
+
+        button > p {
             font-family: "Times New Roman";
             font-size: 26px;
             text-align: center;
-           margin:auto;
+            margin: auto;
             color: white;
         }
-        #listBlock{
+
+        #listBlock {
             width: 700px;
             height: 650px;
             margin: auto;
             padding-top: 50px;
             overflow-y: auto;
         }
-.listLabel{
-    font-family: "Times New Roman";
-    font-size: 40px;
-    font-style: initial;
-    color: white;
-}
-.centerList{
-    text-align: center;
-    list-style-type: none;
-}
-        li{
-          text-align: center;
+
+        .listLabel {
+            font-family: "Times New Roman";
+            font-size: 40px;
+            font-style: initial;
+            color: white;
+        }
+
+        .centerList {
+            text-align: center;
+            list-style-type: none;
+        }
+
+        li {
+            text-align: center;
             margin-top: auto;
             padding-top: 50px;
             border: 1px black solid;
             border-radius: 5px;
-           vertical-align: middle;
+            vertical-align: middle;
             background: darkslategrey;
         }
 
     </style>
 </head>
-<body>
+<body id="mainBody">
 <div id="topBlock">
     <p id="mainLabel">Список дел</p>
 </div>
 <div id="mainBlock">
-    <input id="inputElement" type="text"  value="Введите задачу..." >
+    <input id="inputElement" type="text" placeholder="Введите задачу...">
     <button id="saveButton"><p>Сохранить</p></button>
     <div id="listBlock">
-        <ul class="centerList">
-            <li id="value1"><label class="listLabel"><input type="checkbox" name="value1">Написать телеграм-бота<button>&#10006</button></label></li>
-            <li id="value2"><label class="listLabel"><input type="checkbox" name="value1">Спарсить json<button>&#10006</button></label></li>
-            <li id="value3"><label class="listLabel"><input type="checkbox" name="value1">Вложиться в крипту<button>&#10006</button></label></li>
-            <li id="value4"><label class="listLabel"><input type="checkbox" name="value1">Купить трактор<button>&#10006</button></label></li>
-            <li id="value5"><label class="listLabel"><input type="checkbox" name="value1">Заправить машину<button>&#10006</button></label></li>
-            <li id="value6"><label class="listLabel"><input type="checkbox" name="value1">Сходить в кино<button>&#10006</button></label></li>
-            <li id="value7"><label class="listLabel"><input type="checkbox" name="value1">Поспать<button>&#10006</button></label></li>
-            <li id="value8"><label class="listLabel"><input type="checkbox" name="value1">Поесть<button>&#10006</button></label></li>
-            <li id="value9"><label class="listLabel"><input type="checkbox" name="value1">Полежать<button>&#10006</button></label></li>
-            <li id="value10"><label class="listLabel"><input type="checkbox" name="value1">Стать амогусом<button>&#10006</button></label></li>
-            <li id="value11"><label class="listLabel"><input type="checkbox" name="value1">Снова полежать<button>&#10006</button></label></li>
-            <li id="value12"><label class="listLabel"><input type="checkbox" name="value1">Получить зарплату<button>&#10006</button></label></li>
+        <ul class="centerList" id="mainUl">
+            <li id="value1"><label class="listLabel"><input type="checkbox" name="value1">Написать телеграм-бота
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value2"><label class="listLabel"><input type="checkbox" name="value1">Спарсить json
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value3"><label class="listLabel"><input type="checkbox" name="value1">Вложиться в крипту
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value4"><label class="listLabel"><input type="checkbox" name="value1">Купить трактор
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value5"><label class="listLabel"><input type="checkbox" name="value1">Заправить машину
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value6"><label class="listLabel"><input type="checkbox" name="value1">Сходить в кино
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value7"><label class="listLabel"><input type="checkbox" name="value1">Поспать
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value8"><label class="listLabel"><input type="checkbox" name="value1">Поесть
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value9"><label class="listLabel"><input type="checkbox" name="value1">Полежать
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value10"><label class="listLabel"><input type="checkbox" name="value1">Стать амогусом
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value11"><label class="listLabel"><input type="checkbox" name="value1">Снова полежать
+                <button class="defaultButton">&#10006</button>
+            </label></li>
+            <li id="value12"><label class="listLabel"><input type="checkbox" name="value1">Получить зарплату
+                <button class="defaultButton">&#10006</button>
+            </label></li>
         </ul>
+        <script>
+        </script>
+        <script>
+
+            const body = document.getElementById("mainBody");
+            const mainDiv = document.getElementById("mainBlock");
+            const input = document.getElementById("inputElement");
+            const button = document.getElementById("saveButton");
+            const listDiv = document.getElementById("listBlock");
+            const ul = document.getElementById("mainUl");
+            button.addEventListener("click", () => {
+                const newLi = document.createElement("li");
+                const text = input.value;
+                const newLabel = document.createElement("label");
+                newLabel.classList.add("listLabel");
+                const newInput = document.createElement("input");
+                newInput.type = "checkbox";
+                const newButton = document.createElement("button");
+                newButton.innerHTML="&#10006";
+                const textNode = document.createTextNode(text);
+                newLabel.appendChild(newInput);
+                newLabel.appendChild(textNode);
+                newLi.appendChild(newLabel);
+                newLabel.appendChild(newButton);
+                ul.appendChild(newLi);
+                listDiv.appendChild(ul);
+                mainDiv.appendChild(listDiv);
+                body.appendChild(mainDiv);
+                input.value="";
+                newButton.addEventListener("click", ()=>{
+                    newLi.parentNode.removeChild(newLi);
+                })
+            });
+        </script>
     </div>
 
 </div>
