@@ -87,6 +87,17 @@
             background: darkslategrey;
         }
 
+        .par {
+            text-align: left;
+            size: 50px;
+            font-family: "Times New Roman";
+            color: brown;
+        }
+
+        #radio1 {
+            margin-left: 900px;
+            margin-top: 100px;
+        }
     </style>
 </head>
 <body id="mainBody">
@@ -96,81 +107,115 @@
 <div id="mainBlock">
     <input id="inputElement" type="text" placeholder="Введите задачу...">
     <button id="saveButton"><p>Сохранить</p></button>
+    <label>
+        text
+        <input id="radio1" type="radio" value="Выбрано" checked="false" name="radio1">
+    </label>
+    <input id="radio2" type="radio" value="Не выбрано" checked="false" name="radio1">
+
     <div id="listBlock">
         <ul class="centerList" id="mainUl">
-            <li id="value1"><label class="listLabel"><input type="checkbox" name="value1">Написать телеграм-бота
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value2"><label class="listLabel"><input type="checkbox" name="value1">Спарсить json
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value3"><label class="listLabel"><input type="checkbox" name="value1">Вложиться в крипту
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value4"><label class="listLabel"><input type="checkbox" name="value1">Купить трактор
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value5"><label class="listLabel"><input type="checkbox" name="value1">Заправить машину
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value6"><label class="listLabel"><input type="checkbox" name="value1">Сходить в кино
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value7"><label class="listLabel"><input type="checkbox" name="value1">Поспать
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value8"><label class="listLabel"><input type="checkbox" name="value1">Поесть
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value9"><label class="listLabel"><input type="checkbox" name="value1">Полежать
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value10"><label class="listLabel"><input type="checkbox" name="value1">Стать амогусом
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value11"><label class="listLabel"><input type="checkbox" name="value1">Снова полежать
-                <button class="defaultButton">&#10006</button>
-            </label></li>
-            <li id="value12"><label class="listLabel"><input type="checkbox" name="value1">Получить зарплату
-                <button class="defaultButton">&#10006</button>
-            </label></li>
+            <!--            <li id="value1"><label class="listLabel"><input type="checkbox" name="value1">Написать телеграм-бота
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value2"><label class="listLabel"><input type="checkbox" name="value1">Спарсить json
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value3"><label class="listLabel"><input type="checkbox" name="value1">Вложиться в крипту
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value4"><label class="listLabel"><input type="checkbox" name="value1">Купить трактор
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value5"><label class="listLabel"><input type="checkbox" name="value1">Заправить машину
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value6"><label class="listLabel"><input type="checkbox" name="value1">Сходить в кино
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value7"><label class="listLabel"><input type="checkbox" name="value1">Поспать
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value8"><label class="listLabel"><input type="checkbox" name="value1">Поесть
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value9"><label class="listLabel"><input type="checkbox" name="value1">Полежать
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value10"><label class="listLabel"><input type="checkbox" name="value1">Стать амогусом
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value11"><label class="listLabel"><input type="checkbox" name="value1">Снова полежать
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>
+                        <li id="value12"><label class="listLabel"><input type="checkbox" name="value1">Получить зарплату
+                            <button class="defaultButton">&#10006</button>
+                        </label></li>-->
         </ul>
+
         <script>
         </script>
         <script>
-
-            const body = document.getElementById("mainBody");
-            const mainDiv = document.getElementById("mainBlock");
-            const input = document.getElementById("inputElement");
+            let arr1 = [];
             const button = document.getElementById("saveButton");
-            const listDiv = document.getElementById("listBlock");
-            const ul = document.getElementById("mainUl");
+            const input = document.getElementById("inputElement");
+
+            function render(arr) {
+                const listDiv = document.getElementById("listBlock");
+                const ul = document.getElementById("mainUl");
+                const body = document.getElementById("mainBody");
+                const mainDiv = document.getElementById("mainBlock");
+                listDiv.innerHTML = "";
+                ul.innerHTML = "";
+                for (let i = 0; i < arr.length; i++) {
+                    const newLi = document.createElement("li");
+                    const newLabel = document.createElement("label");
+                    const newInput = document.createElement("input");
+                    const newButton = document.createElement("button");
+                    const textNode = document.createTextNode(arr[i].title);
+                    newLabel.classList.add("listLabel");
+                    newInput.type = "checkbox";
+                    newButton.innerHTML = "&#10006";
+                    newLabel.appendChild(newInput);
+                    newLabel.appendChild(textNode);
+                    newLi.appendChild(newLabel);
+                    newLabel.appendChild(newButton);
+                    ul.appendChild(newLi);
+                    listDiv.appendChild(ul);
+                    mainDiv.appendChild(listDiv);
+                    body.appendChild(mainDiv);
+                    input.value = "";
+                    newButton.addEventListener("click", () => {
+                        newLi.parentNode.removeChild(newLi);
+                        arr.splice(i, 1);
+                    });
+                    newInput.addEventListener("click", () => {
+                        arr[i].isDone = true;
+                    });
+                    if (arr[i].isDone) {
+
+                    }
+                }
+            }
+
             button.addEventListener("click", () => {
-                const newLi = document.createElement("li");
+                const input = document.getElementById("inputElement");
                 const text = input.value;
-                const newLabel = document.createElement("label");
-                newLabel.classList.add("listLabel");
-                const newInput = document.createElement("input");
-                newInput.type = "checkbox";
-                const newButton = document.createElement("button");
-                newButton.innerHTML="&#10006";
-                const textNode = document.createTextNode(text);
-                newLabel.appendChild(newInput);
-                newLabel.appendChild(textNode);
-                newLi.appendChild(newLabel);
-                newLabel.appendChild(newButton);
-                ul.appendChild(newLi);
-                listDiv.appendChild(ul);
-                mainDiv.appendChild(listDiv);
-                body.appendChild(mainDiv);
-                input.value="";
-                newButton.addEventListener("click", ()=>{
-                    newLi.parentNode.removeChild(newLi);
-                })
+                let counter = 0;
+                let obj = {
+                    title: text,
+                    id: counter,
+                    isDone: false
+                }
+                arr1.push(obj);
+                counter++;
+                render(arr1);
             });
+
         </script>
     </div>
 
 </div>
+
 </body>
 </html>
